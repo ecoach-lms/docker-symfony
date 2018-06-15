@@ -7,6 +7,8 @@ RUN apt-get update && apt-get install -y \
 
 ADD nginx.conf /etc/nginx/
 ADD symfony.conf /etc/nginx/sites-available/
+ADD ecoach.dev.key.pem /etc/nginx/
+ADD ecoach.dev.crt.pem /etc/nginx/
 
 RUN ln -s /etc/nginx/sites-available/symfony.conf /etc/nginx/sites-enabled/symfony
 RUN rm /etc/nginx/sites-enabled/default
