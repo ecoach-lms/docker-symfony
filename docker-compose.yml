@@ -22,9 +22,12 @@ services:
             context: php7-fpm
             args:
                 TIMEZONE: ${TIMEZONE}
+                LOOPBACK_ADDR: ${LOOPBACK_ADDR}
+                XDEBUG_PORT: ${XDEBUG_PORT}
         volumes:
             - ${SYMFONY_APP_PATH}:/var/www/symfony
             - ./logs/symfony:/var/www/symfony/app/logs
+            - ./logs/php:/var/log/php:cached
         links:
             - redis
             - db
