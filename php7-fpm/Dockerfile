@@ -5,8 +5,11 @@ ARG TIMEZONE
 MAINTAINER Maxence POUTORD <maxence.poutord@gmail.com>
 
 RUN apt-get update && apt-get install -y \
+	mariadb-client \
     openssl \
     git \
+    zlib1g-dev \
+    libmcrypt-dev \
     unzip
 
 # Install Composer
@@ -21,6 +24,8 @@ RUN "date"
 # Type docker-php-ext-install to see available extensions
 RUN docker-php-ext-install pdo pdo_mysql
 
+# Install the Zip & mcrypt extensions
+#RUN docker-php-ext-install zip mcrypt
 
 # install xdebug
 RUN pecl install xdebug

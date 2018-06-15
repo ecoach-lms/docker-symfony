@@ -45,16 +45,8 @@ Docker-symfony gives you everything you need for developing Symfony application.
         ```bash
         $ docker-compose exec php bash
         $ composer install
-        # Symfony2
-        $ sf doctrine:database:create
-        $ sf doctrine:schema:update --force
-        # Only if you have `doctrine/doctrine-fixtures-bundle` installed
-        $ sf doctrine:fixtures:load --no-interaction
-        # Symfony3
-        $ sf3 doctrine:database:create
-        $ sf3 doctrine:schema:update --force
-        # Only if you have `doctrine/doctrine-fixtures-bundle` installed
-        $ sf3 doctrine:fixtures:load --no-interaction
+        # Database
+        $ mysql -uecoach -pecoach -h db ecoach < sqlscripts/minimum.sql
         ```
 
 5. Enjoy :-)
@@ -63,8 +55,7 @@ Docker-symfony gives you everything you need for developing Symfony application.
 
 Just run `docker-compose up -d`, then:
 
-* Symfony app: visit [symfony.local](http://symfony.local)  
-* Symfony dev mode: visit [symfony.local/app_dev.php](http://symfony.local/app_dev.php)  
+* Symfony dev mode: visit [symfony.local](http://app.ecoach.test)
 * Logs (Kibana): [symfony.local:81](http://symfony.local:81)
 * Logs (files location): logs/nginx and logs/symfony
 
