@@ -10,7 +10,7 @@ services:
             - NET_ADMIN
         command: --log-facility=-
         volumes:
-            - ./.data/dnsmasq.conf:/etc/dnsmasq.conf
+            - ./etc/dnsmasq.conf:/etc/dnsmasq.conf
             - ./.data/dnsmasq.d:/etc/dnsmasq.d
     redis:
         image: redis
