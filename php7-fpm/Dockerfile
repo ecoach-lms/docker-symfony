@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     git \
     zlib1g-dev \
     libmcrypt-dev \
+    libicu-dev \
     unzip
 
 # Install Composer
@@ -24,8 +25,8 @@ RUN "date"
 # Type docker-php-ext-install to see available extensions
 RUN docker-php-ext-install pdo pdo_mysql
 
-# Install the Zip & mcrypt extensions
-#RUN docker-php-ext-install zip mcrypt
+# Install the extra extensions
+RUN docker-php-ext-install zip mcrypt intl
 
 # install xdebug
 RUN pecl install xdebug
