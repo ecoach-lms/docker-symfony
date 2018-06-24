@@ -37,8 +37,8 @@ services:
             - LOOPBACK_ADDR
             - XDEBUG_PORT
         volumes:
-            - ${SYMFONY_APP_PATH}:/var/www/symfony
-            - ./logs/symfony:/var/www/symfony/app/logs
+            - ${SYMFONY_APP_PATH}:/var/www/symfony:cached
+            - ./logs/symfony:/var/www/symfony/app/logs:cached
             - ./logs/php:/var/log/php:cached
         links:
             - redis
